@@ -6,6 +6,9 @@
   <title>chessboardjs Example #1001 - Start Position</title>
   <base href="../" />
   <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css" integrity="sha384-q94+BZtLrkL1/ohfjR8c6L+A6qzNH9R2hBLwyoAfu3i/WCvQjzL2RQJ3uNHDISdU" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--  <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js" integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD" crossorigin="anonymous"></script>
+-->  <script src="echecs/chessboardjs-1.0.0/js/chessboard-1.0.0.js"></script>  
 </head>
 <body>
 <p><a href="examples#1001">&larr; Back to all examples.</a></p>
@@ -17,12 +20,16 @@ the board to the start position.</p>
 <div id="myBoard" style="width: 400px"></div>
 <!--- End Example HTML -------------------------------------------------------->
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js" integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD" crossorigin="anonymous"></script>
 <script>
-// --- Begin Example JS --------------------------------------------------------
-var board = Chessboard('myBoard', 'start')
-// --- End Example JS ----------------------------------------------------------
-</script>
-</body>
+  // --- Begin Example JS --------------------------------------------------------
+  console.log("test")
+var config = {
+    position: 'start',
+    draggable: true
+  }
+  
+  
+  var board1 = ChessBoard('myBoard', config);
+  // --- End Example JS ----------------------------------------------------------
+</script></body>
 </html>
