@@ -1,2 +1,7 @@
-console.log("test");
-var board1 = Chessboard('board1', 'start');
+console.log("test")
+var config = {
+    position: 'start',
+    draggable: true
+  }
+
+var board1 = ChessBoard('myBoard', config);
