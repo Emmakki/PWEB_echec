@@ -41,7 +41,26 @@ const testParti = new Partie ({joueur : "Emma"});
 //Sauvegarder dans la DB
 testParti.save(function (err) {
   if (err) {throw err;}
-  console.log('Parti enregistrée');
+  console.log('Parti enregistrée'); 
   //Déconnexion
   mongoose.connection.close();
+  console.log("Deconnecté");
 })
+
+//Récupérer un fichier
+Partie.find(null, function (err, part) {
+  if (err) { throw err; }
+  console.log(part);
+});
+
+//Update d'un fichier
+Partie.update({joueur:"Emma"}, { joueur : "Akki" }, { multi : true }, function (err) {
+  if (err) { throw err; }
+  console.log('Update effectué');
+});
+
+//Delete
+Partie.remove({ joueur : "Akki" }, function (err) {
+  if (err) { throw err; }
+  console.log('Fichier supprimé');
+});
