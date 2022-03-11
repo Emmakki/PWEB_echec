@@ -27,6 +27,8 @@ db.once('open', function() {
 const Schema = mongoose.Schema;
 const partiSchema = new Schema({
     joueur:  String,
+    password: String,
+    email: String,
     party: JSON,
     temps_départ:   String,
   });
