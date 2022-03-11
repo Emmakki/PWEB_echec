@@ -15,7 +15,7 @@ MongoClient.connect(url, function(err, client) {
 //connexion a mongoose (structurer la BD) avant lancement du serveur
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/PWEB_echec', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://Emmakki:PwebEchecBDtc3@pwebechec.vupjo.mongodb.net/PWEBechec?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
 db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
