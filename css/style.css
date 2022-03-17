@@ -1,0 +1,167 @@
+p
+{
+    font-family: "Arial Black", Arial, Verdana, sans-serif;
+    text-align: justify;
+}
+
+h1
+{
+    font-weight: bold;
+    border: 6px outset;
+    border-radius: 5px;
+}
+body 
+{
+    background-color: slategrey;
+    background-attachment: fixed; /* Le fond restera fixe */
+}
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+footer
+{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 20px;    
+}
+footer ul
+{
+    list-style-type: none;
+    display: flex; 
+    padding-top: 35px; 
+}
+footer li
+{
+    margin-right: 20px;
+    text-align: center;
+    justify-content: flex-start;
+    border: 3px double;
+}
+/* Navigation */
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+nav li
+{
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.3em;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    border-bottom: 3px solid lightcyan;
+}
+
+div
+{
+    text-align: center;
+}
+a /* Liens par défaut (non survolés) */
+{
+   text-decoration: none;
+   color: black;
+   
+}
+
+a:hover /* Apparence au survol des liens */
+{
+   color: black;
+   font-style: italic;
+}
+
+#pion {
+    width  : 80px;
+    height : 80px;
+
+}
+#puzzle {
+    width  : 90px;
+    height : 80px;
+}
+#compte {
+    width  : 80px;
+    height : 83px;
+}
+
+
+#retour
+{
+    font-size: 3em;
+}
+
+
+#image
+{
+    border: 2px solid;
+}
+
+
+.conteneur{
+   display: flex;
+   font-weight: bold;
+   justify-content: space-around;
+   margin-left: 100px;
+   margin-right: 100px;
+}
+
+#carre1 
+{
+  width  : 120px;
+  height : 120px;
+  background : dimgrey;
+  border-radius: 10px;
+  flex:  1;
+  box-shadow: 6px 6px 0px black;
+
+}
+#carre2 
+{
+  width  : 120px;
+  height : 120px;
+  background : dimgrey;
+  border-radius: 10px;
+  flex-grow: 2;
+  box-shadow: 6px 6px 0px black;
+}
+#carre3
+{
+  width  : 120px;
+  height : 120px;
+  background : dimgrey;
+  border-radius: 10px;
+  box-shadow: 6px 6px 0px black;
+}
+#carre4
+{
+  width  : 120px;
+  height : 120px;
+  background : dimgrey;
+  border-radius: 10px;
+  box-shadow: 6px 6px 0px black;
+}
+
+#carre1:hover {
+    background : darkgrey;
+}
+#carre2:hover {
+    background : darkgrey;
+}
+#carre3:hover {
+    background : darkgrey;
+}
+#carre4:hover {
+    background : darkgrey;
+}
+
