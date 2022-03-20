@@ -71,6 +71,13 @@ function updateStatus () {
   $pgn.html(game.pgn())
 }
 
+function reset() {
+  board = null
+  game = new Chess()
+  board = Chessboard('myBoard', config)
+  updateStatus()
+}
+
 var config = {
   pieceTheme: 'echecs/img/{piece}.png',
   draggable: true,
