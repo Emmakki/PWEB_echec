@@ -1,0 +1,7 @@
+.afficher pièces
+.afficher pièces mangées
+.bouton pour réinitialisé le plateau (nouvelle partie)
+.enregistrer les mouvements
+
+.gérer les mouvements des pièces
+.détecter une victoire

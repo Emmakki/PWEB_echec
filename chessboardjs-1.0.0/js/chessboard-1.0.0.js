@@ -576,7 +576,7 @@
     // default piece theme is wikipedia
     if (!config.hasOwnProperty('pieceTheme') ||
         (!isString(config.pieceTheme) && !isFunction(config.pieceTheme))) {
-      config.pieceTheme = 'echecs/img/{piece}.png'
+      config.pieceTheme = 'img/chesspieces/wikipedia/{piece}.png'
     }
 
     // animation speeds
@@ -680,6 +680,7 @@
     var squareElsIds = {}
     var squareElsOffsets = {}
     var squareSize = 16
+    var compteur = 0
 
     // -------------------------------------------------------------------------
     // Validation / Errors
@@ -1133,6 +1134,8 @@
         }
       }
     }
+
+    
 
     function setCurrentPosition (position) {
       var oldPos = deepCopy(currentPosition)
@@ -1670,6 +1673,9 @@
       // get the location
       var location = isXYOnSquare(evt.pageX, evt.pageY)
 
+      console.log("move : ")
+      console.log(widget.position('fen'))
+
       stopDraggedPiece(location)
     }
 
@@ -1731,6 +1737,8 @@
       // execute their function
       config.onMouseoutSquare(square, piece, deepCopy(currentPosition), currentOrientation)
     }
+
+    
 
     // -------------------------------------------------------------------------
     // Initialization
