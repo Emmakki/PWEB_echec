@@ -26,17 +26,22 @@ db.once('open', function() {
 //Création Schéma enregistrement d'une partie
 const Schema = mongoose.Schema;
 const partiSchema = new Schema({
-    joueur:  String,
-    password: String,
-    email: String,
+    nom: String,
     party: JSON,
     temps_départ:   String,
   });
+
+const utiliSchema = new Schema({
+    joueur:  String,
+    password: String,
+    email: String,
+});
 //Création du model
-const Partie = mongoose.model('parties', partiSchema)
+const Partie = mongoose.model('parties', partiSchema);
+const Utilisateur = mongoose.model('joueurs',utiliSchema);
 
 //Création d'un enregistrement
-const testParti = new Partie ({joueur : "Emma"});
+const testParti = new Partie ({nom : "A"});
 
 //Sauvegarder dans la DB
 testParti.save(function (err) {
@@ -53,6 +58,7 @@ Partie.find(null, function (err, part) {
   console.log(part);
 });
 
+
 //Update d'un fichier
 Partie.update({joueur:"Emma"}, { joueur : "Akki" }, { multi : true }, function (err) {
   if (err) { throw err; }
@@ -64,3 +70,4 @@ Partie.remove({ joueur : "Akki" }, function (err) {
   if (err) { throw err; }
   console.log('Fichier supprimé');
 });
+
