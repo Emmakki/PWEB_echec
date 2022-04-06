@@ -1673,8 +1673,8 @@
       // get the location
       var location = isXYOnSquare(evt.pageX, evt.pageY)
 
-      console.log("move : ")
-      console.log(widget.position('fen'))
+      //console.log("move : ")
+      //console.log(widget.position('fen'))
 
       stopDraggedPiece(location)
     }

@@ -26,8 +26,11 @@ function onDrop (source, target) {
   })
 
   // illegal move
-  if (move === null) return 'snapback'
-
+  if (move === null) { 
+    return 'snapback'
+  }else{
+    console.log(board.fen());
+  }
   updateStatus()
 }
 
@@ -79,7 +82,7 @@ function reset() {
 }
 
 var config = {
-  pieceTheme: 'echecs/img/{piece}.png',
+  pieceTheme: 'PWEB_echec/img/{piece}.png',
   draggable: true,
   position: 'start',
   onDragStart: onDragStart,
@@ -87,8 +90,6 @@ var config = {
   onSnapEnd: onSnapEnd
 }
 board = Chessboard('myBoard', config)
-
-console.log(board.fen());
 
 updateStatus()
 //ici je vérifie que j'obtiens bien une position
