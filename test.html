@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-system-bar  height="100" group>
+        <v-img max-height="82" max-width="92" src="TOUR.jpg"></v-img>
+        <h1>TCHESS</h1>
+        <v-row justify="end">
+          <v-form>
+          <v-col>
+            <v-btn color="primary"
+            v-bind="attrs"
+            v-on="on"
+            depressed>Inscription</v-btn>
+            <v-dialog transition="dialog-bottom-transition" max-width="600">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            color="primary"
+            v-bind="attrs"
+            v-on="on"
+            depressed
+          >Connexion</v-btn>
+        </template>
+        <template v-slot:default="dialog">
+          <v-card>
+            <v-toolbar
+              color="primary"
+              dark
+            >Connexion</v-toolbar>
+            <v-card-text>
+              <v-form ref="form" v-model="valid" lazy-validation>
+                <v-text-field v-model="pass" label="Nom ou Email" required ></v-text-field>
+          
+                <v-text-field v-model="password" label="Mot de passe" :type="'password'" counter required></v-text-field>
+            
+                <v-checkbox
+                  v-model="checkbox"  
+                  label="remember me"
+                ></v-checkbox>
+            
+                <v-btn
+                  :disabled="valid"
+                  color="success"
+                  class="mr-4"
+                  @click="validate"
+                >
+                  Connexion
+                </v-btn>
+            
+              </v-form>
+           </v-card-text>
+            <v-card-actions class="justify-end">
+              <v-btn
+                text
+                @click="dialog.value = false"
+              >Close</v-btn>
+            </v-card-actions>
+          </v-card>
+        </template>
+        
+       </v-dialog>
+      </v-col>
+    </v-row>
+  </v-form>
+        </v-system-bar>
+        
+
+      
+            
+        <v-switch label="bullet" v-model="yes"></v-switch>
+      </v-main>
+    </v-app>
+  </div>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+    })
+  </script>
+</body>
+</html>
