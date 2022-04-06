@@ -18,14 +18,15 @@ function connexion(user, mdp){
         //Vérifie si le nom existe
         if (joue.length == 0) {
             console.log("N'existe pas");
-        } else if (joue.password == mdp ) {
+        //Vérifie si c'est le bon mot de pass
+        } else if (joue[0].password == mdp ) {
             console.log("connexion valide");
         } else {
             console.log("connexion invalide");
         }
-
+  
     });
-}
+  }
 
 //fonction inscription à la base de donnée
 function inscription (user, mdp, mail){
@@ -38,7 +39,7 @@ function inscription (user, mdp, mail){
                 joueur : user,
                 password : mdp,
                 email: mail
-
+  
             });
             compte.save(function(err){
                 if (err) {throw err;}
@@ -49,4 +50,4 @@ function inscription (user, mdp, mail){
             console.log("Nom d'utilisateur existe déjà");
         }
     });
-}
+  }
