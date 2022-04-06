@@ -28,8 +28,11 @@ db.once('open', function() {
 const Schema = mongoose.Schema;
 const partiSchema = new Schema({
     nom: String,
-    party: JSON,
+    party: String,
     temps_départ:   String,
+    statut: String,
+    Joueur1: String,
+    Joueur2: String,
   });
 
 const utiliSchema = new Schema({
@@ -116,6 +119,48 @@ function connexion(user, mdp){
 
   });
 }
+
+//fonction création d'une partie
+function creaParti (n, joueur) {
+  const p = new Partie ({nom : n, party: "",temps_départ: "test",statut: "En attente",Joueur1: joueur,Joueur2: ""});
+  p.save(function (err) {
+    if (err) {throw err;}
+    console.log('Parti enregistrée'); 
+  })
+}
+
+//afficher les partie en cours pour un utilisateur donné
+function partiEnCour (nomJ){
+  var enCours = 0;
+  var j = Partie.find(null);
+  j.where('Joueur1',nomJ);
+  j.exec(function (err,part){
+    if (err){throw err;}
+      for (i =0; i<part.length; i++){
+        if (part[i].statut=="En cours") {
+          console.log (part[i]);
+          enCours += 1;
+        }
+      }
+  });
+  
+  var p = Partie.find(null);
+  p.where('Joueur2',nomJ);
+  p.exec(function (err,part){
+    if (err){throw err;}
+      for (i =0; i<part.length; i++){
+        if (part[i].statut=="En cours") {
+          console.log (part[i]);
+          enCours += 1;
+        }
+      }
+  });
+
+  if (enCours == 0){
+    console.log("Aucune partie en cours")
+  }
+}
+
 
 
 
