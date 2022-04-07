@@ -122,44 +122,67 @@ function connexion(user, mdp){
 
 //fonction création d'une partie
 function creaParti (n, joueur) {
-  const p = new Partie ({nom : n, party: "",temps_départ: "test",statut: "En attente",Joueur1: joueur,Joueur2: ""});
+  const p = new Partie ({nom : n, party: "",temps_départ: "test",statut: "En Cours",Joueur1: joueur,Joueur2: ""});
   p.save(function (err) {
     if (err) {throw err;}
     console.log('Parti enregistrée'); 
   })
 }
 
+//creaParti("2","QQUN")
+
 //afficher les partie en cours pour un utilisateur donné
 function partiEnCour (nomJ){
   var enCours = 0;
-  var j = Partie.find(null);
-  j.where('Joueur1',nomJ);
-  j.exec(function (err,part){
-    if (err){throw err;}
-      for (i =0; i<part.length; i++){
-        if (part[i].statut=="En cours") {
-          console.log (part[i]);
-          enCours += 1;
-        }
-      }
+  Partie.find({Joueur1: nomJ}, function (err, part) {
+    if (err) { throw err; }
+    for(i=0;i<part.length;i++){
+      if (part[i].statut=="En Cours") {
+        console.log (part[i]);
+        enCours += 1;
+     }
+    }
   });
   
-  var p = Partie.find(null);
-  p.where('Joueur2',nomJ);
-  p.exec(function (err,part){
-    if (err){throw err;}
-      for (i =0; i<part.length; i++){
-        if (part[i].statut=="En cours") {
-          console.log (part[i]);
-          enCours += 1;
-        }
-      }
+  Partie.find({Joueur2: nomJ}, function (err, part) {
+    if (err) { throw err; }
+    for(i=0;i<part.length;i++){
+      if (part[i].statut=="En cours") {
+        console.log (part[i]);
+        enCours += 1;
+     }
+    }
+    if (enCours == 0){
+      console.log("Aucune partie en cours")
+    }
   });
-
-  if (enCours == 0){
-    console.log("Aucune partie en cours")
-  }
 }
+//partiEnCour("QQUN");
+
+//Affichage partie
+function afficheParti (idP) {
+  Partie.find({_id: idP}, function (err, part) {
+    if (err) { throw err; }
+    console.log("Nom: ", part[0].nom);
+    console.log("Coups joués: ", part[0].party);
+    console.log("Statut de la partie: ", part[0].statut);
+    console.log("Joueur 1:  ", part[0].Joueur1);
+    console.log("Joueur 2:  ", part[0].Joueur2);
+  });
+}
+//afficheParti("624d95975308896197da48c9");
+
+/*
+//Réccupérer l'id parti
+function idP (nomP, J1, J2){
+    return Partie.find({nom: nomP, Joueur1: J1, Joueur2: J2}, function (err, part) {
+      if (err) { throw err; }
+      return part[0]._id;
+  });
+}
+
+console.log(idP("2","QQUN",""));
+*/
 
 
 
