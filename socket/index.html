@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Demo JavaScript in Body</h2>
+
+<p id="demo">Bonjour</p>
+
+<button type="button" onclick="connectroom1()">room1</button>
+<button type="button" onclick="connectroom2()">room2</button>
+<button type="button" onclick="pingmyroom()">ping room</button>
+<button type="button" onclick="broadcast()">broadcast</button>
+<button type="button" onclick="leave()">leave</button>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io();
+
+function connectroom1() {
+  socket.emit('chat message', "room1");
+  document.getElementById("demo").innerHTML = "Connecté";
+}
+function connectroom2() {
+  socket.emit('chat message', "room2");
+  document.getElementById("demo").innerHTML = "Connecté";
+}
+function pingmyroom() {
+  socket.emit('ping', "ping");
+  document.getElementById("demo").innerHTML = "pinged";
+}
+function broadcast() {
+  socket.emit('broadcast', "broadcast");
+  document.getElementById("demo").innerHTML = "broadcast";
+}
+function leave() {
+  socket.emit('leave', "leave");
+  document.getElementById("demo").innerHTML = "left room";
+}
+
+
+    
+socket.on('message',function(msg){
+       console.log('un message : ' + msg)
+});
+
+</script>
+
+</body>
+</html>
