@@ -13,12 +13,10 @@
 <script>
 import NavBar from '@/components/NavBar.vue'
 import FootBar from '@/components/FootBar.vue'
-import {chessboard} from 'vue-chessboard'
-import 'vue-chessboard/dist/vue-chessboard.css'
 
 export default {
   name: 'App',
-  components: { NavBar, FootBar, chessboard },
+  components: { NavBar, FootBar},
   data () {
     return {
       
