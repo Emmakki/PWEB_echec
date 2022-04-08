@@ -15,45 +15,40 @@
     <v-img alt="interro logo" max-height="82" max-width="92" src="../assets/soleil.png"></v-img>
     </v-row>
   <v-col order-lg>
+  <v-radio-group
+      v-model="row"
+      row
+      justify="space-around"
+    >
   <v-row justify="space-around" align-lg>
   
-    <v-switch
-      v-model="switch1"
-      inset
-      :label="`Bullet (1 min)`"
-    ></v-switch>
-    
-    <v-switch
-      v-model="switch2"
-      inset
-      :label="`blitz (3 min) `"
-    ></v-switch>
-     
-     <v-switch
-      v-model="switch3"
-      inset
-      :label="`Blitz (5 min)`"
-    ></v-switch>
-    
-    <v-switch
-      v-model="switch4"
-      inset
-      :label="`Rapide (10 min)`"
-    ></v-switch>
-     
-     <v-switch
-      v-model="switch5"
-      inset
-      :label="`Longue (30 min)`"
-    ></v-switch>
-    
-    <v-switch
-      v-model="switch6"
-      inset
-      :label="`Jour ( 1 jour)`"
-    ></v-switch>
+      <v-radio
+        label="Bullet (1 min)"
+        value="radio-1"
+      ></v-radio>
+      <v-radio
+        label="blitz (3 min)"
+        value="radio-2"
+      ></v-radio>
+      <v-radio
+        label="Blitz (5 min)"
+        value="radio-3"
+      ></v-radio>
+      <v-radio
+        label="Rapide (10 min)"
+        value="radio-4"
+      ></v-radio>
+      <v-radio
+        label="Longue (30 min)"
+        value="radio-5"
+      ></v-radio>
+      <v-radio
+        label="Jour ( 1 jour)"
+        value="radio-6"
+      ></v-radio>
      
   </v-row>
+   </v-radio-group>
   </v-col>
     <v-col lg>
    <v-row justify="space-around" align-xl>
