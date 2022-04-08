@@ -121,15 +121,27 @@ function connexion(user, mdp){
 }
 
 //fonction création d'une partie
-function creaParti (n, joueur) {
-  const p = new Partie ({nom : n, party: "",temps_départ: "test",statut: "En Cours",Joueur1: joueur,Joueur2: ""});
+function creaParti (n, joueur, invite) {
+  const p = new Partie ({nom : n, party: "",temps_départ: "test",statut: "En Attente",Joueur1: joueur,Joueur2: invite});
   p.save(function (err) {
     if (err) {throw err;}
     console.log('Parti enregistrée'); 
   })
 }
+//creaParti("test","Akki","ami");
 
-//creaParti("2","QQUN")
+// afficher les parties en attente d'un joueur
+function partiEnAttente (pseudo){
+  Partie.find({Joueur2: pseudo}, function (err, part) {
+    if (err) { throw err; }
+    for(i=0;i<part.length;i++){
+      if (part[i].statut=="En Attente") {
+        console.log (part[i]);
+     }
+    }
+  });
+}
+//partiEnAttente("ami");
 
 //afficher les partie en cours pour un utilisateur donné
 function partiEnCour (nomJ){
