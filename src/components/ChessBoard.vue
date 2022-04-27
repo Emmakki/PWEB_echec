@@ -1,7 +1,7 @@
 <template>
-<v-row justify="space-around">
-    <chessboard/>
-</v-row>
+    <v-row justify="space-around">
+      <chessboard/>
+    </v-row>
 </template>
  
 <script src="vue.js"></script>
